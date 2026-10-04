@@ -34,7 +34,7 @@ async function generateTest() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/generate",
+            "https://YOUR-RENDER-SERVICE.onrender.com/generate",
             {
                 method: "POST",
 
