@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Question Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+
+    <header>
+        <div class="brand">
+            <div class="logo">✦</div>
+
+            <div>
+                <h1>AI Question Generator</h1>
+                <p>Turn your study material into an interactive test.</p>
+            </div>
+        </div>
+
+        <div class="badge">
+            GEMINI AI
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- GENERATOR -->
+
+        <section class="card">
+
+            <div class="title">
+                <span>📚</span>
+
+                <div>
+                    <h2>Study Material</h2>
+                    <p>Paste your notes, chapter or study material.</p>
+                </div>
+            </div>
+
+
+            <div class="text-area-wrapper">
+
+    <textarea
+        id="studyText"
+        maxlength="20000"
+        placeholder="Paste your study material here..."
+    ></textarea>
+
+    <div id="characterCounter">
+        0 / 60,000 characters
+    </div>
+
+</div>
+
+
+            <div class="controls">
+
+                <div>
+                    <label>Difficulty</label>
+
+                    <select id="difficulty">
+                        <option value="Easy">🟢 Easy</option>
+                        <option value="Moderate" selected>
+                            🟡 Moderate
+                        </option>
+                        <option value="Hard">🔴 Hard</option>
+                        <option value="High-level">
+                            🔥 High-level
+                        </option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Questions</label>
+
+                    <select id="questionCount">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label>Question Type</label>
+
+                    <select id="questionType">
+                        <option value="MCQ" selected>
+                            Multiple Choice
+                        </option>
+
+                        <option value="True/False">
+                            True / False
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <button id="generateBtn" onclick="generateTest()">
+                ✨ Generate Test
+            </button>
+
+        </section>
+
+
+        <!-- TEST -->
+
+        <section
+            id="testSection"
+            class="card hidden"
+        >
+
+            <div class="testHeader">
+
+                <div>
+                    <small>GENERATED TEST</small>
+
+                    <h2 id="testTitle">
+                        Your Test
+                    </h2>
+                </div>
+
+                <div
+                    id="questionCounter"
+                    class="counter"
+                >
+                    1 / 10
+                </div>
+
+            </div>
+
+
+            <div id="questionContainer"></div>
+
+
+            <div class="navigation">
+
+                <button
+                    id="previousBtn"
+                    onclick="previousQuestion()"
+                >
+                    ← Previous
+                </button>
+
+                <button
+                    id="nextBtn"
+                    onclick="nextQuestion()"
+                    class="primary"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+
+            <button
+                id="submitBtn"
+                onclick="submitTest()"
+                class="submit hidden"
+            >
+                Submit Test
+            </button>
+
+        </section>
+
+
+        <!-- RESULT -->
+
+        <section
+            id="resultSection"
+            class="card result hidden"
+        >
+
+            <div class="resultIcon">
+                🎉
+            </div>
+
+            <h2>Test Complete!</h2>
+
+            <div
+                id="score"
+                class="score"
+            >
+                0%
+            </div>
+
+            <p id="scoreText"></p>
+
+            <button
+                onclick="restartTest()"
+                class="primary"
+            >
+                Create Another Test
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        AI Question Generator • Powered by Gemini
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
